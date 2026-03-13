@@ -1,0 +1,94 @@
+---
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/blog", label: "Blog" },
+];
+---
+
+<header class="bg-secondary text-white sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 text-xl font-bold">
+        <span class="text-2xl">🔑</span>
+        <span class="text-accent">CERRAJERO</span>
+        <span>24</span>
+      </a>
+
+      <!-- Nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <!-- CTA Teléfono -->
+      <a
+        href="tel:900123456"
+        class="flex items-center gap-2 bg-accent text-secondary font-bold px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+          ></path>
+        </svg>
+        <span class="hidden sm:inline">900 123 456</span>
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-white p-2"
+        aria-label="Abrir menú"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile nav -->
+    <nav id="mobile-menu" class="md:hidden hidden pb-4">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block py-2 text-gray-300 hover:text-white transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

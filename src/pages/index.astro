@@ -1,0 +1,139 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+
+const servicios = [
+  {
+    title: "Apertura de Puertas",
+    description: "Abrimos tu puerta sin daños en menos de 30 minutos. Técnicas no destructivas para todo tipo de cerraduras.",
+    icon: "🚪",
+    urgent: true,
+  },
+  {
+    title: "Cambio de Cerraduras",
+    description: "Instalación de cerraduras de alta seguridad. Bombines antibumping y antiextracción de las mejores marcas.",
+    icon: "🔒",
+    urgent: false,
+  },
+  {
+    title: "Apertura de Coches",
+    description: "¿Te dejaste las llaves dentro del coche? Abrimos cualquier vehículo sin dañar la cerradura ni la carrocería.",
+    icon: "🚗",
+    urgent: true,
+  },
+  {
+    title: "Cajas Fuertes",
+    description: "Apertura, reparación e instalación de cajas fuertes de todas las marcas y niveles de seguridad.",
+    icon: "🏦",
+    urgent: false,
+  },
+  {
+    title: "Duplicado de Llaves",
+    description: "Copias de llaves de seguridad, llaves de coche con chip, mandos de garaje y tarjetas de proximidad.",
+    icon: "🔑",
+    urgent: false,
+  },
+  {
+    title: "Emergencias 24H",
+    description: "Servicio de cerrajería urgente disponible las 24 horas del día, los 365 días del año. Siempre cerca de ti.",
+    icon: "🆘",
+    urgent: true,
+  },
+];
+
+const ventajas = [
+  {
+    title: "Disponibles 24 Horas",
+    description: "Atendemos emergencias a cualquier hora del día o de la noche, los 365 días del año.",
+    icon: "🕐",
+  },
+  {
+    title: "Llegamos en 30 Minutos",
+    description: "Nuestros técnicos están distribuidos por toda la ciudad para ofrecer la respuesta más rápida.",
+    icon: "⚡",
+  },
+  {
+    title: "Garantía por Escrito",
+    description: "Todos nuestros trabajos incluyen garantía. Presupuesto cerrado antes de empezar, sin sorpresas.",
+    icon: "✅",
+  },
+];
+---
+
+<BaseLayout
+  title="Cerrajería de Emergencia 24 Horas"
+  description="Servicio profesional de cerrajería 24 horas. Apertura de puertas en 30 minutos, cambio de cerraduras, coches y más. Llámanos al 900 123 456."
+>
+  <!-- Hero -->
+  <HeroSection />
+
+  <!-- Servicios -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-secondary mb-4">
+        Nuestros Servicios
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Ofrecemos soluciones profesionales para cualquier problema con cerraduras y llaves.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        servicios.map((servicio) => (
+          <ServiceCard
+            title={servicio.title}
+            description={servicio.description}
+            icon={servicio.icon}
+            urgent={servicio.urgent}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Por qué elegirnos -->
+  <section class="bg-primary/5 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-secondary mb-4">
+          ¿Por Qué Elegirnos?
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Miles de clientes confían en nosotros cada año para resolver sus emergencias de cerrajería.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          ventajas.map((v) => (
+            <div class="text-center">
+              <div class="text-5xl mb-4">{v.icon}</div>
+              <h3 class="text-xl font-bold text-secondary mb-2">{v.title}</h3>
+              <p class="text-gray-600">{v.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="bg-secondary rounded-3xl p-8 md:p-12 text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+        ¿Necesitas un cerrajero <span class="text-accent">ahora mismo</span>?
+      </h2>
+      <p class="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+        No importa la hora. Llámanos y un profesional estará en tu puerta en menos de 30 minutos.
+      </p>
+      <a
+        href="tel:900123456"
+        class="inline-flex items-center gap-3 bg-accent hover:bg-yellow-300 text-secondary font-extrabold text-2xl px-10 py-5 rounded-2xl shadow-xl transition-all hover:scale-105"
+      >
+        📞 Llamar Ahora - 900 123 456
+      </a>
+    </div>
+  </section>
+</BaseLayout>

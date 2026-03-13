@@ -1,0 +1,53 @@
+---
+import SEO from "@/components/SEO.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <SEO title={title} description={description} />
+
+    <!-- Schema LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Cerrajero 24",
+      "description": "Servicio profesional de cerrajería de emergencia 24 horas. Apertura de puertas, cambio de cerraduras y más.",
+      "url": "https://cerrajero24.es",
+      "telephone": "+34900123456",
+      "email": "info@cerrajero24.es",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ES"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "priceRange": "$$",
+      "image": "https://cerrajero24.es/favicon.svg",
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      }
+    })} />
+  </head>
+  <body class="bg-background text-secondary font-sans antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

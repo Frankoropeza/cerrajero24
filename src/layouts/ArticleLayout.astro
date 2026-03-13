@@ -1,0 +1,62 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: string;
+    author: string;
+    tags: string[];
+  };
+}
+
+const { frontmatter } = Astro.props;
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString("es-ES", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <header class="mb-8">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {
+          frontmatter.tags.map((tag: string) => (
+            <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-secondary mb-4">
+        {frontmatter.title}
+      </h1>
+      <div class="flex items-center gap-4 text-gray-500 text-sm">
+        <span>{frontmatter.author}</span>
+        <span>·</span>
+        <time datetime={frontmatter.pubDate}>{formattedDate}</time>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="prose prose-lg max-w-none prose-headings:text-secondary prose-a:text-primary prose-strong:text-secondary">
+      <slot />
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 bg-primary/5 border border-primary/20 rounded-2xl p-8 text-center">
+      <h2 class="text-2xl font-bold text-secondary mb-3">¿Necesitas un cerrajero ahora?</h2>
+      <p class="text-gray-600 mb-6">Estamos disponibles las 24 horas. Llámanos y llegamos en menos de 30 minutos.</p>
+      <a
+        href="tel:900123456"
+        class="inline-flex items-center gap-2 bg-accent hover:bg-yellow-300 text-secondary font-bold text-xl px-8 py-4 rounded-xl transition-colors"
+      >
+        📞 900 123 456
+      </a>
+    </div>
+  </article>
+</BaseLayout>
