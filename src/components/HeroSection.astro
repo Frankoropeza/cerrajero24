@@ -1,63 +1,231 @@
 ---
-
 ---
 
-<section class="relative bg-gradient-to-br from-secondary via-gray-900 to-primary text-white overflow-hidden">
+<section class="hero">
   <!-- Background pattern -->
-  <div class="absolute inset-0 opacity-10">
-    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #FBBF24 1px, transparent 1px); background-size: 40px 40px;"></div>
-  </div>
+  <div class="hero__pattern" aria-hidden="true"></div>
 
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-    <div class="text-center">
-      <!-- Badge urgencia -->
-      <div class="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
-        <span class="relative flex h-3 w-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-accent"></span>
-        </span>
-        Servicio de emergencia 24/7
+  <div class="container hero__inner">
+
+    <!-- COLUMNA 1: H1 + CTAs -->
+    <div class="hero__col1">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Servicio de emergencia 24/7 · Toda España
       </div>
 
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-        Abrimos tu puerta<br />
-        <span class="text-accent">en 30 minutos</span>
+      <h1 class="hero__title">
+        Cerrajeros profesionales<br />
+        <span class="hero__accent">en 30 minutos</span>
       </h1>
 
-      <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8">
-        Cerrajeros profesionales disponibles las 24 horas.
-        Sin daños, sin esperas, con garantía.
+      <p class="hero__sub">
+        Abrimos tu puerta sin daños, sin esperas y con precio cerrado antes de empezar.
+        Disponibles las 24 horas, los 365 días del año.
       </p>
 
-      <!-- Teléfono grande -->
-      <div class="mb-8">
-        <a
-          href="tel:900123456"
-          class="inline-flex items-center gap-3 bg-accent hover:bg-yellow-300 text-secondary font-extrabold text-2xl md:text-4xl px-8 py-4 md:px-12 md:py-6 rounded-2xl shadow-2xl shadow-accent/25 transition-all hover:scale-105"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-10 md:w-10" viewBox="0 0 20 20" fill="currentColor">
+      <div class="hero__ctas">
+        <a href="tel:900123456" class="btn-call">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20">
             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
           </svg>
           900 123 456
         </a>
+        <a href="/contacto/" class="btn-secondary">
+          Presupuesto gratuito →
+        </a>
       </div>
 
-      <p class="text-gray-400 text-sm">
-        Llamada gratuita · Presupuesto sin compromiso · Toda España
-      </p>
-
-      <!-- Trust badges -->
-      <div class="flex flex-wrap justify-center gap-6 mt-10 text-sm text-gray-300">
-        <div class="flex items-center gap-2">
-          <span class="text-accent text-lg">✓</span> Respuesta inmediata
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-accent text-lg">✓</span> Sin daños en tu puerta
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-accent text-lg">✓</span> Precio cerrado antes de empezar
-        </div>
+      <div class="hero__trust">
+        <span>✓ Sin daños en tu puerta</span>
+        <span>✓ Precio cerrado antes de empezar</span>
+        <span>✓ Garantía escrita</span>
       </div>
     </div>
+
+    <!-- COLUMNA 2: 2 párrafos SEO — SOLO TEXTO -->
+    <div class="hero__col2">
+      <p class="hero__p1">
+        Cerrajero24 es el servicio de cerrajería profesional de referencia en España, con cobertura en Madrid,
+        Barcelona, Valencia, Sevilla y más de 50 ciudades en toda la península. Llevamos más de 10 años
+        atendiendo emergencias de apertura de puertas, cambio de cerraduras, instalación de bombines de
+        alta seguridad y sistemas de control de acceso para hogares, comunidades de vecinos y empresas.
+        Respuesta garantizada en menos de 30 minutos en zonas metropolitanas.
+      </p>
+      <p class="hero__p2">
+        Todos nuestros cerrajeros están certificados, cuentan con seguro de responsabilidad civil y
+        ofrecen presupuesto cerrado antes de iniciar cualquier trabajo — sin sorpresas en la factura.
+        Trabajamos con las principales marcas de seguridad: Mul-T-Lock, EVVA, Keso y Mottura.
+        Llamada gratuita las 24 horas. Si no te abrimos, no cobras.
+      </p>
+    </div>
+
   </div>
 </section>
+
+<style>
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-secondary, #1e3a5f) 0%, #111827 50%, var(--color-primary, #1d4ed8) 100%);
+    color: #fff;
+    padding: clamp(80px, 12vw, 130px) 0 clamp(60px, 8vw, 100px);
+    overflow: hidden;
+  }
+
+  .hero__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image: radial-gradient(circle at 25% 25%, #FBBF24 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  /* ── Columna 1 ── */
+  .hero__col1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(251,191,36,.15);
+    border: 1px solid rgba(251,191,36,.35);
+    color: #FBBF24;
+    font-size: .8rem;
+    font-weight: 700;
+    padding: .4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .hero__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FBBF24;
+    animation: pulse 1.5s infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.4); }
+  }
+
+  .hero__title {
+    font-size: clamp(2.2rem, 4.5vw, 58px);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero__accent { color: #FBBF24; }
+
+  .hero__sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,.75);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .hero__ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #FBBF24;
+    color: #1e3a5f;
+    font-weight: 900;
+    font-size: 1.25rem;
+    padding: .85rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(251,191,36,.35);
+    transition: all .2s;
+  }
+
+  .btn-call:hover { background: #F59E0B; transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid rgba(255,255,255,.3);
+    color: #fff;
+    font-weight: 700;
+    font-size: .95rem;
+    padding: .85rem 1.75rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all .2s;
+  }
+
+  .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+  .hero__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    font-size: .8rem;
+    color: rgba(255,255,255,.6);
+  }
+
+  /* ── Columna 2 ── */
+  .hero__col2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero__p1,
+  .hero__p2 {
+    font-size: .97rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,.7);
+  }
+
+  .hero__p1 {
+    padding-left: 1.25rem;
+    border-left: 3px solid #FBBF24;
+  }
+
+  .hero__p2 {
+    padding-left: 1.25rem;
+    border-left: 3px solid rgba(255,255,255,.2);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .hero__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero__title { font-size: clamp(2rem, 8vw, 44px); }
+  }
+
+  @media (max-width: 480px) {
+    .btn-call { font-size: 1.1rem; padding: .75rem 1.5rem; }
+    .hero__ctas { flex-direction: column; }
+    .btn-call, .btn-secondary { width: 100%; justify-content: center; }
+  }
+</style>
